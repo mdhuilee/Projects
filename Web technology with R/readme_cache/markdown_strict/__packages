@@ -1,0 +1,12 @@
+base
+knitr
+httr
+xml2
+rvest
+magrittr
+ggplot2
+ggmap
+stringr
+maps
+mapproj
+formattable

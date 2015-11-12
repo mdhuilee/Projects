@@ -1,0 +1,2 @@
+unnamed-chunk-2	!	.	[[	&	%>%	~	as.numeric	c	data.frame	formattable	formatter	geocode	gsub	html	html_attr	html_node	html_nodes	html_text	if	is.na	list	sapply	str_detect	str_extract_all	str_replace_all	strsplit
+unnamed-chunk-3	[<-	>	$	$<-	aes	as.factor	c	element_blank	element_text	lat	library	lon	price_cat	qmap	scale_fill_manual	stat_bin2d	theme	theme_bw	theme_set
