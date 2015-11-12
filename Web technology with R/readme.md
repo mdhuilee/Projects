@@ -47,12 +47,11 @@ Summary
     low <- result %>% html_node("low")%>%html_text()
     high <- result %>% html_node("high")%>%html_text()
     valueChange30Day <- result %>% html_node("valueChange")%>%html_text()
-    kable(data.frame(zpid,amount,low,high,valueChange30Day)[1:6,])
+    kable(data.frame(zpid,amount,low,high,valueChange30Day))
 
 <table>
 <thead>
 <tr class="header">
-<th align="left"></th>
 <th align="left">zpid</th>
 <th align="left">amount</th>
 <th align="left">low</th>
@@ -62,52 +61,11 @@ Summary
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">1</td>
 <td align="left">48749425</td>
 <td align="left">1425219</td>
 <td align="left">1339706</td>
 <td align="left">1539237</td>
 <td align="left">144</td>
-</tr>
-<tr class="even">
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-</tr>
-<tr class="odd">
-<td align="left">NA.1</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-</tr>
-<tr class="even">
-<td align="left">NA.2</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-</tr>
-<tr class="odd">
-<td align="left">NA.3</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-</tr>
-<tr class="even">
-<td align="left">NA.4</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
 </tr>
 </tbody>
 </table>
@@ -174,7 +132,7 @@ Hui adapted from
     houseData <- data.frame(zpid, price, yrbuilt, numbeds, numbaths, housesqft, 
         lotsqft, straddr, lat_lon)
 
-    kable(houseData)
+    kable(houseData[1:6, ])
 
 <table>
 <thead>
@@ -193,304 +151,76 @@ Hui adapted from
 </thead>
 <tbody>
 <tr class="odd">
+<td align="left">2100551520</td>
+<td align="right">235000</td>
+<td align="right">2015</td>
+<td align="right">4</td>
+<td align="right">3.0</td>
+<td align="right">2817</td>
+<td align="right">10454</td>
+<td align="left">1641 Windborne Ln Greenwood IN 46143</td>
+<td align="right">-86.14667</td>
+<td align="right">39.59392</td>
+</tr>
+<tr class="even">
 <td align="left">85444228</td>
 <td align="right">135000</td>
 <td align="right">2002</td>
 <td align="right">2</td>
 <td align="right">2.0</td>
 <td align="right">1173</td>
-<td align="right">4791.0</td>
+<td align="right">4791</td>
 <td align="left">1112 Lincoln Park East Dr Greenwood IN 46142</td>
 <td align="right">-86.16448</td>
 <td align="right">39.63262</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">2100587200</td>
 <td align="right">375000</td>
 <td align="right">2013</td>
 <td align="right">4</td>
 <td align="right">2.5</td>
 <td align="right">4074</td>
-<td align="right">15246.0</td>
+<td align="right">15246</td>
 <td align="left">Brentford Ln Greenwood IN 46143</td>
 <td align="right">-86.14453</td>
 <td align="right">39.58283</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">85442093</td>
 <td align="right">10</td>
 <td align="right">1800</td>
 <td align="right">2</td>
 <td align="right">1.0</td>
 <td align="right">1114</td>
-<td align="right">7840.0</td>
+<td align="right">7840</td>
 <td align="left">627 Forest Ave Greenwood IN 46143</td>
 <td align="right">-86.09644</td>
 <td align="right">39.61269</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">85439013</td>
 <td align="right">79900</td>
 <td align="right">1960</td>
 <td align="right">3</td>
 <td align="right">1.0</td>
 <td align="right">960</td>
-<td align="right">7840.0</td>
+<td align="right">7840</td>
 <td align="left">611 Park Dr Greenwood IN 46143</td>
 <td align="right">-86.10177</td>
 <td align="right">39.62611</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">94434235</td>
 <td align="right">30</td>
 <td align="right">2007</td>
 <td align="right">4</td>
 <td align="right">3.5</td>
 <td align="right">3900</td>
-<td align="right">9147.0</td>
+<td align="right">9147</td>
 <td align="left">597 Timeless Run Greenwood IN 46143</td>
 <td align="right">-86.04300</td>
 <td align="right">39.60632</td>
-</tr>
-<tr class="even">
-<td align="left">85448555</td>
-<td align="right">139900</td>
-<td align="right">1977</td>
-<td align="right">3</td>
-<td align="right">3.0</td>
-<td align="right">1819</td>
-<td align="right">27442.8</td>
-<td align="left">59 Idleway Ct Greenwood IN 46142</td>
-<td align="right">-86.16611</td>
-<td align="right">39.61024</td>
-</tr>
-<tr class="odd">
-<td align="left">85463712</td>
-<td align="right">110000</td>
-<td align="right">1996</td>
-<td align="right">3</td>
-<td align="right">2.0</td>
-<td align="right">1309</td>
-<td align="right">4487.0</td>
-<td align="left">1310 Kenwood Dr Greenwood IN 46143</td>
-<td align="right">-86.11026</td>
-<td align="right">39.59830</td>
-</tr>
-<tr class="even">
-<td align="left">85462889</td>
-<td align="right">105000</td>
-<td align="right">2001</td>
-<td align="right">3</td>
-<td align="right">2.0</td>
-<td align="right">1105</td>
-<td align="right">6272.0</td>
-<td align="left">1406 Osprey Way Greenwood IN 46143</td>
-<td align="right">-86.08745</td>
-<td align="right">39.59663</td>
-</tr>
-<tr class="odd">
-<td align="left">85448263</td>
-<td align="right">185000</td>
-<td align="right">1978</td>
-<td align="right">4</td>
-<td align="right">2.0</td>
-<td align="right">3240</td>
-<td align="right">50529.6</td>
-<td align="left">3981 Shadow Hill Ln Greenwood IN 46142</td>
-<td align="right">-86.17611</td>
-<td align="right">39.61510</td>
-</tr>
-<tr class="even">
-<td align="left">85461720</td>
-<td align="right">174900</td>
-<td align="right">2001</td>
-<td align="right">3</td>
-<td align="right">3.0</td>
-<td align="right">2304</td>
-<td align="right">9496.0</td>
-<td align="left">1363 Butternut Ln Greenwood IN 46143</td>
-<td align="right">-86.08107</td>
-<td align="right">39.59698</td>
-</tr>
-<tr class="odd">
-<td align="left">85453784</td>
-<td align="right">184900</td>
-<td align="right">1999</td>
-<td align="right">3</td>
-<td align="right">3.0</td>
-<td align="right">2159</td>
-<td align="right">9147.0</td>
-<td align="left">1296 White Ash Dr Greenwood IN 46143</td>
-<td align="right">-86.16785</td>
-<td align="right">39.59782</td>
-</tr>
-<tr class="even">
-<td align="left">85443594</td>
-<td align="right">164900</td>
-<td align="right">1994</td>
-<td align="right">3</td>
-<td align="right">2.0</td>
-<td align="right">1444</td>
-<td align="right">5662.0</td>
-<td align="left">1630 Foxmere Way Greenwood IN 46142</td>
-<td align="right">-86.15547</td>
-<td align="right">39.62466</td>
-</tr>
-<tr class="odd">
-<td align="left">97329217</td>
-<td align="right">135000</td>
-<td align="right">2007</td>
-<td align="right">3</td>
-<td align="right">3.0</td>
-<td align="right">1548</td>
-<td align="right">5837.0</td>
-<td align="left">1495 Pencross Ln Greenwood IN 46143</td>
-<td align="right">-86.08436</td>
-<td align="right">39.59594</td>
-</tr>
-<tr class="even">
-<td align="left">85462881</td>
-<td align="right">114900</td>
-<td align="right">2002</td>
-<td align="right">3</td>
-<td align="right">2.0</td>
-<td align="right">1288</td>
-<td align="right">5314.0</td>
-<td align="left">1502 Osprey Way Greenwood IN 46143</td>
-<td align="right">-86.08744</td>
-<td align="right">39.59552</td>
-</tr>
-<tr class="odd">
-<td align="left">85442691</td>
-<td align="right">104900</td>
-<td align="right">1960</td>
-<td align="right">3</td>
-<td align="right">2.0</td>
-<td align="right">1120</td>
-<td align="right">12196.8</td>
-<td align="left">705 Sunset Blvd Greenwood IN 46142</td>
-<td align="right">-86.12389</td>
-<td align="right">39.62543</td>
-</tr>
-<tr class="even">
-<td align="left">85456431</td>
-<td align="right">150000</td>
-<td align="right">2005</td>
-<td align="right">4</td>
-<td align="right">3.0</td>
-<td align="right">2244</td>
-<td align="right">10454.0</td>
-<td align="left">1009 Boxwood Ln Greenwood IN 46143</td>
-<td align="right">-86.08094</td>
-<td align="right">39.59093</td>
-</tr>
-<tr class="odd">
-<td align="left">85465823</td>
-<td align="right">113000</td>
-<td align="right">2000</td>
-<td align="right">3</td>
-<td align="right">2.5</td>
-<td align="right">1507</td>
-<td align="right">4486.0</td>
-<td align="left">2349 Harvest Moon Dr Greenwood IN 46143</td>
-<td align="right">-86.10438</td>
-<td align="right">39.58217</td>
-</tr>
-<tr class="even">
-<td align="left">85443260</td>
-<td align="right">95000</td>
-<td align="right">1935</td>
-<td align="right">2</td>
-<td align="right">2.0</td>
-<td align="right">1144</td>
-<td align="right">32670.0</td>
-<td align="left">1354 Fry Rd Greenwood IN 46142</td>
-<td align="right">-86.14440</td>
-<td align="right">39.62817</td>
-</tr>
-<tr class="odd">
-<td align="left">85438343</td>
-<td align="right">89900</td>
-<td align="right">1986</td>
-<td align="right">3</td>
-<td align="right">2.0</td>
-<td align="right">1068</td>
-<td align="right">9147.0</td>
-<td align="left">1081 Laura Dr Greenwood IN 46143</td>
-<td align="right">-86.10480</td>
-<td align="right">39.63340</td>
-</tr>
-<tr class="even">
-<td align="left">85440378</td>
-<td align="right">149900</td>
-<td align="right">1960</td>
-<td align="right">4</td>
-<td align="right">2.0</td>
-<td align="right">2628</td>
-<td align="right">20473.2</td>
-<td align="left">630 Averitt Rd Greenwood IN 46142</td>
-<td align="right">-86.12081</td>
-<td align="right">39.60645</td>
-</tr>
-<tr class="odd">
-<td align="left">2111293141</td>
-<td align="right">149900</td>
-<td align="right">2015</td>
-<td align="right">2</td>
-<td align="right">2.0</td>
-<td align="right">1294</td>
-<td align="right">9844.0</td>
-<td align="left">3890 Kristi Way Greenwood IN 46142</td>
-<td align="right">-86.17486</td>
-<td align="right">39.63060</td>
-</tr>
-<tr class="even">
-<td align="left">85464694</td>
-<td align="right">129900</td>
-<td align="right">2000</td>
-<td align="right">3</td>
-<td align="right">2.0</td>
-<td align="right">1275</td>
-<td align="right">9408.0</td>
-<td align="left">2520 Longleaf Dr Greenwood IN 46143</td>
-<td align="right">-86.12179</td>
-<td align="right">39.58188</td>
-</tr>
-<tr class="odd">
-<td align="left">85444318</td>
-<td align="right">144900</td>
-<td align="right">2003</td>
-<td align="right">2</td>
-<td align="right">2.0</td>
-<td align="right">1252</td>
-<td align="right">6534.0</td>
-<td align="left">906 Lincoln Park West Dr Greenwood IN 46142</td>
-<td align="right">-86.16545</td>
-<td align="right">39.63080</td>
-</tr>
-<tr class="even">
-<td align="left">124613582</td>
-<td align="right">375000</td>
-<td align="right">2013</td>
-<td align="right">4</td>
-<td align="right">3.0</td>
-<td align="right">4074</td>
-<td align="right">15246.0</td>
-<td align="left">1325 Brentford Ln Greenwood IN 46143</td>
-<td align="right">-86.14453</td>
-<td align="right">39.58283</td>
-</tr>
-<tr class="odd">
-<td align="left">97329484</td>
-<td align="right">132000</td>
-<td align="right">2008</td>
-<td align="right">3</td>
-<td align="right">3.0</td>
-<td align="right">2006</td>
-<td align="right">5662.0</td>
-<td align="left">598 Greenway St Greenwood IN 46143</td>
-<td align="right">-86.09505</td>
-<td align="right">39.59972</td>
 </tr>
 </tbody>
 </table>
