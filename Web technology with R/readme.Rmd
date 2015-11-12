@@ -19,7 +19,7 @@ library(ggmap)
 library(stringr)
 library(knitr)
 library(xml2)
-library(formattable)
+ 
 sample <- GET("http://www.zillow.com/webservice/GetSearchResults.htm", 
               query = list('zws-id' = "X1-ZWz1f063o0dzij_7yjzz", 
                            address = "2114 Bigelow Ave",
@@ -97,29 +97,7 @@ housesqft <- sapply(houseparamsSplit,function(x) strsplit(x[1]," ")[[1]][7]) %>%
 #houseData <- data.frame(zpid,price,yrbuilt,numbeds,numbaths,housesqft,lotsqft,straddr)
 houseData <- data.frame(zpid,price,yrbuilt,numbeds,numbaths,housesqft,lotsqft,straddr,lat_lon)
 
-formattable(houseData, list(
-  housesqft = formatter("span", 
-    style = x ~ style(color = "white", background = "green", 
-      padding.right = sprintf("%.0fpx", 4 + 76 * normalize(x)),
-      padding.left = "4px",
-      border.radius = "4px")),
-    price = formatter("span", 
-    style = x ~ style(color = "white", background = "green", 
-      padding.right = sprintf("%.0fpx", 4 + 76 * normalize(x)),
-      padding.left = "4px",
-      border.radius = "4px"))
-  # ,
-#   grade = formatter("span",
-#     style = x ~ ifelse(x == "A", style(color = "green", font.weight = "bold"), NA)),
-#   test1_score = color_bar("pink", 0.2),
-#   test2_score = color_bar("pink", 0.2),
-#   final_score = formatter("span",
-#     style = x ~ style(color = ifelse(rank(-x) <= 3, "green", "gray")),
-#     x ~ sprintf("%.2f (rank: %02d)", x, rank(-x))),
-#   registered = formatter("span", 
-#     style = x ~ style(color = ifelse(x, "green", "red")),
-#     x ~ icontext(ifelse(x, "leaf", "alarm"), ifelse(x, "ok", "No")))
-), align = c("l","l","l","l","l","l","l","l","l"))
+kable(houseData)
 
 
 
