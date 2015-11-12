@@ -1,3 +1,13 @@
+Gender difference among blood measurements in Athletes' Blood Measurements study
+--------------------------------------------------------------------------------
+
+Using density plot by gender, we could easily find blood measurements
+that have gender viariation. For example, male athletes tend to have
+more red blood cell count then female counterparts. We could also verify
+that by looking at parralel coordinate plot. In addition, we could see
+male athletes tend to have much lower sum of skin folds(ssf) and percent
+body fat(pcBfat).
+
     library(knitr)
     opts_chunk$set(tidy = TRUE, cache=TRUE, autodep=TRUE, message=FALSE)
 
@@ -9,14 +19,6 @@
 
     data(ais)
 
-    heatmap.2(as.matrix(ais[1:11]))
-
-![](readme_files/figure-markdown_strict/unnamed-chunk-1-1.png)
-
-    ggpairs(ais[,1:11])
-
-![](readme_files/figure-markdown_strict/unnamed-chunk-1-2.png)
-
     ais_long <- gather(ais, key = measure, value = value, rcc:wt)
 
     levels(ais_long$measure) <- c("red blood cell count", "while blood cell count",
@@ -26,16 +28,12 @@
                                   "lean body mass", "height", 
                                   "weight")
 
-    ggplot(data = ais_long, aes(value)) + geom_histogram() +
+    ggplot(data = ais_long, aes(value, fill = sex)) + geom_density(alpha = 0.2) +
         facet_wrap( ~ measure, scales = "free")
 
-![](readme_files/figure-markdown_strict/unnamed-chunk-1-3.png)
+![](readme_files/figure-markdown_strict/unnamed-chunk-1-1.png)
 
     ggparcoord(ais, columns = 1:11, groupColumn = "sex") +
                scale_colour_manual(values = c("grey", "red"))
 
-![](readme_files/figure-markdown_strict/unnamed-chunk-1-4.png)
-
-    ggparcoord(ais, columns = 1:11, groupColumn = "sport")
-
-![](readme_files/figure-markdown_strict/unnamed-chunk-1-5.png)
+![](readme_files/figure-markdown_strict/unnamed-chunk-1-2.png)

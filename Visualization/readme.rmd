@@ -1,7 +1,14 @@
 ---
-title: "Athletes’ Blood Measurements"
+title: "Visualization using R: a case study"
 output: md_document
 ---
+
+
+## Gender difference among blood measurements in Athletes' Blood Measurements study
+
+Using density plot by gender, we could easily find blood measurements that have gender viariation.
+For example, male athletes tend to have more red blood cell count then female counterparts.
+We could also verify that by looking at parralel coordinate plot. In addition, we could see male athletes tend to have much lower sum of skin folds(ssf) and percent body fat(pcBfat).
 
 ```{r, message=FALSE}
 library(knitr)
@@ -15,10 +22,6 @@ library(gplots)
 
 data(ais)
 
-heatmap.2(as.matrix(ais[1:11]))
-
-ggpairs(ais[,1:11])
-
 ais_long <- gather(ais, key = measure, value = value, rcc:wt)
 
 levels(ais_long$measure) <- c("red blood cell count", "while blood cell count",
@@ -28,13 +31,12 @@ levels(ais_long$measure) <- c("red blood cell count", "while blood cell count",
                               "lean body mass", "height", 
                               "weight")
 
-ggplot(data = ais_long, aes(value)) + geom_histogram() +
+ggplot(data = ais_long, aes(value, fill = sex)) + geom_density(alpha = 0.2) +
     facet_wrap( ~ measure, scales = "free")
 
 ggparcoord(ais, columns = 1:11, groupColumn = "sex") +
            scale_colour_manual(values = c("grey", "red"))
 
-ggparcoord(ais, columns = 1:11, groupColumn = "sport")
 ```
 
  
