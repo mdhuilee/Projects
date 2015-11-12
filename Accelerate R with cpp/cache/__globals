@@ -1,0 +1,5 @@
+unnamed-chunk-2	c	exp	for	length
+unnamed-chunk-3	library
+unnamed-chunk-4	cxxfunction	signature
+unnamed-chunk-5	cxxfunction	signature
+unnamed-chunk-6	all.equal	c	gradient_c	gradient_r	log_like_c	log_like_r	rep

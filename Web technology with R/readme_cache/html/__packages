@@ -1,0 +1,10 @@
+base
+knitr
+httr
+rvest
+magrittr
+ggplot2
+ggmap
+stringr
+maps
+mapproj
