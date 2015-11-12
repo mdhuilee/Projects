@@ -3,15 +3,12 @@ title: "Web technology with R"
 output: md_document
 ---
 
+# Web technology with R
 
-## Summary
-* Demonstrate using Zillow official API to extract information
-* Alternatively, scrape Zillow website to get richer information and geocoding the address
-* Visualize relationship between real estate location and value in a map
-
-
-##1. Using API 
+## 1. Using API 
 <http://www.zillow.com/howto/api/GetSearchResults.htm>
+
+### Demonstrate using Zillow official API to extract information
 
 ```{r}
 library(knitr)
@@ -47,7 +44,9 @@ kable(data.frame(zpid,amount,low,high,valueChange30Day))
 
 
 
-##2.  Explore Zillow data using rvest
+## 2. Explore Zillow data using rvest
+
+### Alternatively, scrape Zillow website to get richer information and geocoding the address
 
 Hui adapted from https://raw.githubusercontent.com/notesofdabbler/blog_notesofdabbler/master/learn_rvest/exploreZillow_w_rvest.R
  
@@ -111,7 +110,10 @@ kable(houseData[1:6,])
 
 
 
-##3. Mapping
+## 3. Mapping
+
+### Visualize relationship between real estate location and value in a map
+
 
 ```{r, fig.width=15, fig.height=12}
 library(ggmap)

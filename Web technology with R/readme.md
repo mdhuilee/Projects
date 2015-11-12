@@ -1,16 +1,21 @@
-Summary
--------
+# Web technology with R
 
--   Demonstrate using Zillow official API to extract information
--   Alternatively, scrape Zillow website to get richer information and
-    geocoding the address
--   Visualize relationship between real estate location and value in a
-    map
+Table of Contents
+=================
+
+    * [1\. Using API](#1-using-api)
+      * [Demonstrate using Zillow official API to extract information](#demonstrate-using-zillow-official-api-to-extract-information)
+    * [2\. Explore Zillow data using rvest](#2-explore-zillow-data-using-rvest)
+      * [Alternatively, scrape Zillow website to get richer information and geocoding the address](#alternatively-scrape-zillow-website-to-get-richer-information-and-geocoding-the-address)
+    * [3\. Mapping](#3-mapping)
+      * [Visualize relationship between real estate location and value in a map](#visualize-relationship-between-real-estate-location-and-value-in-a-map)
 
 1. Using API
 ------------
 
 <http://www.zillow.com/howto/api/GetSearchResults.htm>
+
+### Demonstrate using Zillow official API to extract information
 
     library(knitr)
     opts_chunk$set(tidy = TRUE, cache=TRUE, autodep=TRUE, message=FALSE)
@@ -72,6 +77,8 @@ Summary
 
 2. Explore Zillow data using rvest
 ----------------------------------
+
+### Alternatively, scrape Zillow website to get richer information and geocoding the address
 
 Hui adapted from
 <https://raw.githubusercontent.com/notesofdabbler/blog_notesofdabbler/master/learn_rvest/exploreZillow_w_rvest.R>
@@ -227,6 +234,8 @@ Hui adapted from
 
 3. Mapping
 ----------
+
+### Visualize relationship between real estate location and value in a map
 
     library(ggmap)
 
