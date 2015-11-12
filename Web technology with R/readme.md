@@ -47,11 +47,12 @@ Summary
     low <- result %>% html_node("low")%>%html_text()
     high <- result %>% html_node("high")%>%html_text()
     valueChange30Day <- result %>% html_node("valueChange")%>%html_text()
-    kable(data.frame(zpid,amount,low,high,valueChange30Day))
+    kable(data.frame(zpid,amount,low,high,valueChange30Day)[1:6,])
 
 <table>
 <thead>
 <tr class="header">
+<th align="left"></th>
 <th align="left">zpid</th>
 <th align="left">amount</th>
 <th align="left">low</th>
@@ -61,11 +62,52 @@ Summary
 </thead>
 <tbody>
 <tr class="odd">
+<td align="left">1</td>
 <td align="left">48749425</td>
 <td align="left">1425219</td>
 <td align="left">1339706</td>
 <td align="left">1539237</td>
 <td align="left">144</td>
+</tr>
+<tr class="even">
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">NA.1</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">NA.2</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">NA.3</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">NA.4</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
 </tr>
 </tbody>
 </table>
