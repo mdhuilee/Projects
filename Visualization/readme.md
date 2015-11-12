@@ -1,5 +1,7 @@
-Gender difference among blood measurements in Athletes' Blood Measurements study
---------------------------------------------------------------------------------
+Visualization using R: a case study
+-----------------------------------
+
+### Gender difference among blood measurements in Athletes' Blood Measurements study
 
 Using density plot by gender, we could easily find blood measurements
 that have gender viariation. For example, male athletes tend to have
