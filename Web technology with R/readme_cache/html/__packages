@@ -8,3 +8,5 @@ ggmap
 stringr
 maps
 mapproj
+xml2
+formattable
