@@ -1,5 +1,5 @@
 
-# title: "Package demo"
+# Package demo
 
 This document is to demonstrate how to use R package `NFLvegas` made by Hui Li to extract NFL vegas line information from website <pro-football-reference.com>.
  
