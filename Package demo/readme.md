@@ -3,16 +3,16 @@
 
 This document is to demonstrate how to use R package `NFLvegas` made by Hui Li to extract NFL vegas line information from website pro-football-reference.com.
 
-1. Package installation from github.com/mdhuilee/NFLvegas
+* Package installation from github.com/mdhuilee/NFLvegas
 
-```{}
 
+```r
 library(devtools)
-install_github('NFLvegas', 'mdhuilee')
+install_github("NFLvegas", "mdhuilee")
 ```
 
 
-2. Extract vegas line information after specified time window
+* Extract vegas line information after specified time window
 
 
 ```r
@@ -22,8 +22,8 @@ nfl_vegas(from = 2011, to = 2011, obs = 5)
 ```
 
 ```
-## ##------ Fri Nov 13 13:32:32 2015 ------##
-## ##------ Fri Nov 13 13:32:37 2015 ------##
+## ##------ Fri Nov 13 13:39:42 2015 ------##
+## ##------ Fri Nov 13 13:39:47 2015 ------##
 ```
 
 ```
