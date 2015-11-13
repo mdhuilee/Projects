@@ -18,3 +18,8 @@ maps
 mapproj
 xml2
 formattable
+lattice
+DAAG
+tidyr
+GGally
+gplots
