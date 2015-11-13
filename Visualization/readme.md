@@ -1,41 +1,42 @@
-Visualization using R: a case study
------------------------------------
 
-### Gender difference among blood measurements in Athletes' Blood Measurements study
+# Visualization using R: a case study
 
-Using density plot by gender, we could easily find blood measurements
-that have gender viariation. For example, male athletes tend to have
-more red blood cell count then female counterparts. We could also verify
-that by looking at parralel coordinate plot. In addition, we could see
-male athletes tend to have much lower sum of skin folds(ssf) and percent
-body fat(pcBfat).
+## Gender difference among blood measurements in Athletes' Blood Measurements study
 
-    library(knitr)
-    opts_chunk$set(tidy = TRUE, cache=TRUE, autodep=TRUE, message=FALSE)
+Using density plot by gender, we could easily find blood measurements that have gender viariation.
+For example, male athletes tend to have more red blood cell count then female counterparts.
+We could also verify that by looking at parralel coordinate plot. In addition, we could see male athletes tend to have much lower sum of skin folds(ssf) and percent body fat(pcBfat).
 
-    library(DAAG)
-    library(ggplot2)
-    library(tidyr)
-    library(GGally)
-    library(gplots)
 
-    data(ais)
+```r
+library(knitr)
+opts_chunk$set(tidy = TRUE, cache = TRUE, autodep = TRUE, message = FALSE)
 
-    ais_long <- gather(ais, key = measure, value = value, rcc:wt)
+library(DAAG)
+library(ggplot2)
+library(tidyr)
+library(GGally)
+library(gplots)
 
-    levels(ais_long$measure) <- c("red blood cell count", "while blood cell count",
-                                  "hematocrit", "hemaglobin concentration",
-                                  "plasma ferritins", "Body mass index", 
-                                  "sum of skin folds", "percent Body fat",
-                                  "lean body mass", "height", 
-                                  "weight")
+data(ais)
 
-    ggplot(data = ais_long, aes(value, fill = sex)) + geom_density(alpha = 0.2) +
-        facet_wrap( ~ measure, scales = "free")
+ais_long <- gather(ais, key = measure, value = value, rcc:wt)
 
-![](readme_files/figure-markdown_strict/unnamed-chunk-1-1.png)
+levels(ais_long$measure) <- c("red blood cell count", "while blood cell count", 
+    "hematocrit", "hemaglobin concentration", "plasma ferritins", "Body mass index", 
+    "sum of skin folds", "percent Body fat", "lean body mass", "height", "weight")
 
-    ggparcoord(ais, columns = 1:11, groupColumn = "sex") +
-               scale_colour_manual(values = c("grey", "red"))
+ggplot(data = ais_long, aes(value, fill = sex)) + geom_density(alpha = 0.2) + 
+    facet_wrap(~measure, scales = "free")
+```
 
-![](readme_files/figure-markdown_strict/unnamed-chunk-1-2.png)
+![plot of chunk unnamed-chunk-1](figure/unnamed-chunk-1-1.png) 
+
+```r
+ggparcoord(ais, columns = 1:11, groupColumn = "sex") + scale_colour_manual(values = c("grey", 
+    "red"))
+```
+
+![plot of chunk unnamed-chunk-1](figure/unnamed-chunk-1-2.png) 
+
+ 
