@@ -3,11 +3,11 @@
 Table of Contents
 =================
 
-    * [1\. Using API](#1-using-api)
-      * [Demonstrate using Zillow official API to extract information](#demonstrate-using-zillow-official-api-to-extract-information)
-    * [2\. Explore Zillow data using rvest](#2-explore-zillow-data-using-rvest)
+* [1\. Using API](#1-using-api)
+    * [Demonstrate using Zillow official API to extract information](#demonstrate-using-zillow-official-api-to-extract-information)
+* [2\. Explore Zillow data using rvest](#2-explore-zillow-data-using-rvest)
       * [Alternatively, scrape Zillow website to get richer information and geocoding the address](#alternatively-scrape-zillow-website-to-get-richer-information-and-geocoding-the-address)
-    * [3\. Mapping](#3-mapping)
+* [3\. Mapping](#3-mapping)
       * [Visualize relationship between real estate location and value in a map](#visualize-relationship-between-real-estate-location-and-value-in-a-map)
 
 1. Using API
