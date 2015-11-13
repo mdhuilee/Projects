@@ -1,11 +1,21 @@
 
 # Package demo
 
-This document is to demonstrate how to use R package `NFLvegas` made by Hui Li to extract NFL vegas line information from website <pro-football-reference.com>.
- 
+This document is to demonstrate how to use R package `NFLvegas` made by Hui Li to extract NFL vegas line information from website pro-football-reference.com.
+
+1. Package installation from github.com/mdhuilee/NFLvegas
+
+```{}
+
+library(devtools)
+install_github('NFLvegas', 'mdhuilee')
+```
+
+
+2. Extract vegas line information after specified time window
+
 ```{r}
-#library(devtools)
-#install_github('NFLvegas', 'mdhuilee')
+
 library("NFLvegas")
 
 nfl_vegas(from = 2011, to = 2011, obs = 5)
