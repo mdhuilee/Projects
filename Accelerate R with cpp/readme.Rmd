@@ -1,6 +1,12 @@
  
 # Log likelihood and gradient function in R and Rcpp
- 
+    * [Summary](#summary)
+    * [Code](#code)
+      * [Log likelihood function in R](#log-likelihood-function-in-r)
+      * [Gradient function in R](#gradient-function-in-r)
+      * [Log likelihood function in Rcpp](#log-likelihood-function-in-rcpp)
+      * [Gradient function in Rcpp](#gradient-function-in-rcpp)
+    * [Results](#results)
 
 ## Summary
 

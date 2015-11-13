@@ -3,3 +3,4 @@ unnamed-chunk-3	library
 unnamed-chunk-4	cxxfunction	signature
 unnamed-chunk-5	cxxfunction	signature
 unnamed-chunk-6	all.equal	c	gradient_c	gradient_r	log_like_c	log_like_r	rep
+unnamed-chunk-1	$	as.vector	cbind	exp	for	length	library	log	opts_chunk	rep	t

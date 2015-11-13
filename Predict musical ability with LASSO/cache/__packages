@@ -16,3 +16,10 @@ ggplot2
 ggmap
 maps
 mapproj
+xml2
+formattable
+lattice
+DAAG
+tidyr
+GGally
+gplots

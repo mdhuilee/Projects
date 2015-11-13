@@ -1,5 +1,11 @@
 
 # Predicting musical ability with LASSO
+    * [Summary](#summary)
+    * [Introduction](#introduction)
+    * [Methods](#methods)
+    * [Results](#results)
+    * [Predictions](#predictions)
+
 
 ## Summary    
 Objectives:To establish a proper model based on brain activity data and use it to predict unknown subjects' musical ability.    

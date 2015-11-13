@@ -1,6 +1,12 @@
  
 # Log likelihood and gradient function in R and Rcpp
- 
+    * [Summary](#summary)
+    * [Code](#code)
+      * [Log likelihood function in R](#log-likelihood-function-in-r)
+      * [Gradient function in R](#gradient-function-in-r)
+      * [Log likelihood function in Rcpp](#log-likelihood-function-in-rcpp)
+      * [Gradient function in Rcpp](#gradient-function-in-rcpp)
+    * [Results](#results)
 
 ## Summary
 
@@ -11,19 +17,19 @@ To create four functions: the log likelihood and gradient function in R and Rcpp
 
 ```r
 library(knitr)
-opts_chunk$set(tidy = TRUE, cache=TRUE, autodep=TRUE, message=FALSE)
+opts_chunk$set(tidy = TRUE, cache = TRUE, autodep = TRUE, message = FALSE)
 
-log_like_r <- function(beta, y, x){
-    len <- length(x)    #to create a vector storing the length of vector x
+log_like_r <- function(beta, y, x) {
+    len <- length(x)  #to create a vector storing the length of vector x
     one <- rep(1, len)  #to create a vector of elements one with the same 
-                        #length as x
+    # length as x
     m <- cbind(one, x)  #to create a matrix with ones as the first column and
-                        #x as the second column
+    # x as the second column
     log_like <- 0
     for (i in 1:len) {
-        n <- y[i] * (t(beta) %*% m[i,])- log(1 + exp(t(beta) %*% m[i,]))
-                                #to calculate the log likehood function for each i
-        log_like = log_like + n #to add each obtained value n to log_like
+        n <- y[i] * (t(beta) %*% m[i, ]) - log(1 + exp(t(beta) %*% m[i, ]))
+        # to calculate the log likehood function for each i
+        log_like = log_like + n  #to add each obtained value n to log_like
     }
     as.vector(log_like)
 }
@@ -114,7 +120,7 @@ log_like_c(x = x, y = y, beta = beta)
 ```
 
 ```
-## [1] -80.00249
+## Error in .Primitive(".Call")(<pointer: 0x0>, beta, x, y): NULL value passed as symbol address
 ```
 
 ```r
@@ -122,7 +128,7 @@ all.equal(log_like_r(x = x, y = y, beta = beta), log_like_c(x = x, y = y, beta =
 ```
 
 ```
-## [1] TRUE
+## Error in .Primitive(".Call")(<pointer: 0x0>, beta, x, y): NULL value passed as symbol address
 ```
 
 ```r
@@ -139,9 +145,7 @@ gradient_c(x = x, y = y, beta = beta)
 ```
 
 ```
-##            [,1]
-## [1,]  -4.997511
-## [2,] -14.997494
+## Error in .Primitive(".Call")(<pointer: 0x0>, beta, x, y): NULL value passed as symbol address
 ```
 
 ```r
@@ -150,7 +154,7 @@ all.equal(gradient_r(x = x, y = y, beta = beta), c(gradient_c(x = x, y = y,
 ```
 
 ```
-## [1] TRUE
+## Error in .Primitive(".Call")(<pointer: 0x0>, beta, x, y): NULL value passed as symbol address
 ```
 
 
