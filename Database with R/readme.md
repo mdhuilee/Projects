@@ -23,45 +23,6 @@ files <- c("inning/inning_all.xml", "players.xml")
 scrape(start = "2013-06-01", end = "2013-06-01", suffix = files, connect = db$con)
 ```
 
-```
-## http://gd2.mlb.com/components/game/mlb/year_2013/month_06/day_01/gid_2013_06_01_arimlb_chnmlb_1/players.xml 
-## http://gd2.mlb.com/components/game/mlb/year_2013/month_06/day_01/gid_2013_06_01_bosmlb_nyamlb_1/players.xml 
-## http://gd2.mlb.com/components/game/mlb/year_2013/month_06/day_01/gid_2013_06_01_chamlb_oakmlb_1/players.xml 
-## http://gd2.mlb.com/components/game/mlb/year_2013/month_06/day_01/gid_2013_06_01_cinmlb_pitmlb_1/players.xml 
-## http://gd2.mlb.com/components/game/mlb/year_2013/month_06/day_01/gid_2013_06_01_detmlb_balmlb_1/players.xml 
-## http://gd2.mlb.com/components/game/mlb/year_2013/month_06/day_01/gid_2013_06_01_houmlb_anamlb_1/players.xml 
-## http://gd2.mlb.com/components/game/mlb/year_2013/month_06/day_01/gid_2013_06_01_kcamlb_texmlb_1/players.xml 
-## http://gd2.mlb.com/components/game/mlb/year_2013/month_06/day_01/gid_2013_06_01_lanmlb_colmlb_1/players.xml 
-## http://gd2.mlb.com/components/game/mlb/year_2013/month_06/day_01/gid_2013_06_01_milmlb_phimlb_1/players.xml 
-## http://gd2.mlb.com/components/game/mlb/year_2013/month_06/day_01/gid_2013_06_01_nynmlb_miamlb_1/players.xml 
-## http://gd2.mlb.com/components/game/mlb/year_2013/month_06/day_01/gid_2013_06_01_seamlb_minmlb_1/players.xml 
-## http://gd2.mlb.com/components/game/mlb/year_2013/month_06/day_01/gid_2013_06_01_sfnmlb_slnmlb_1/players.xml 
-## http://gd2.mlb.com/components/game/mlb/year_2013/month_06/day_01/gid_2013_06_01_sfnmlb_slnmlb_2/players.xml 
-## http://gd2.mlb.com/components/game/mlb/year_2013/month_06/day_01/gid_2013_06_01_tbamlb_clemlb_1/players.xml 
-## http://gd2.mlb.com/components/game/mlb/year_2013/month_06/day_01/gid_2013_06_01_tormlb_sdnmlb_1/players.xml 
-## http://gd2.mlb.com/components/game/mlb/year_2013/month_06/day_01/gid_2013_06_01_wasmlb_atlmlb_1/players.xml 
-## http://gd2.mlb.com/components/game/mlb/year_2013/month_06/day_01/gid_2013_06_01_arimlb_chnmlb_1/inning/inning_all.xml 
-## http://gd2.mlb.com/components/game/mlb/year_2013/month_06/day_01/gid_2013_06_01_bosmlb_nyamlb_1/inning/inning_all.xml 
-## http://gd2.mlb.com/components/game/mlb/year_2013/month_06/day_01/gid_2013_06_01_chamlb_oakmlb_1/inning/inning_all.xml 
-## http://gd2.mlb.com/components/game/mlb/year_2013/month_06/day_01/gid_2013_06_01_cinmlb_pitmlb_1/inning/inning_all.xml 
-## http://gd2.mlb.com/components/game/mlb/year_2013/month_06/day_01/gid_2013_06_01_detmlb_balmlb_1/inning/inning_all.xml 
-## http://gd2.mlb.com/components/game/mlb/year_2013/month_06/day_01/gid_2013_06_01_houmlb_anamlb_1/inning/inning_all.xml 
-## http://gd2.mlb.com/components/game/mlb/year_2013/month_06/day_01/gid_2013_06_01_kcamlb_texmlb_1/inning/inning_all.xml 
-## http://gd2.mlb.com/components/game/mlb/year_2013/month_06/day_01/gid_2013_06_01_lanmlb_colmlb_1/inning/inning_all.xml 
-## http://gd2.mlb.com/components/game/mlb/year_2013/month_06/day_01/gid_2013_06_01_milmlb_phimlb_1/inning/inning_all.xml 
-## http://gd2.mlb.com/components/game/mlb/year_2013/month_06/day_01/gid_2013_06_01_nynmlb_miamlb_1/inning/inning_all.xml 
-## http://gd2.mlb.com/components/game/mlb/year_2013/month_06/day_01/gid_2013_06_01_seamlb_minmlb_1/inning/inning_all.xml 
-## http://gd2.mlb.com/components/game/mlb/year_2013/month_06/day_01/gid_2013_06_01_sfnmlb_slnmlb_1/inning/inning_all.xml 
-## http://gd2.mlb.com/components/game/mlb/year_2013/month_06/day_01/gid_2013_06_01_sfnmlb_slnmlb_2/inning/inning_all.xml 
-## http://gd2.mlb.com/components/game/mlb/year_2013/month_06/day_01/gid_2013_06_01_tbamlb_clemlb_1/inning/inning_all.xml 
-## http://gd2.mlb.com/components/game/mlb/year_2013/month_06/day_01/gid_2013_06_01_tormlb_sdnmlb_1/inning/inning_all.xml 
-## http://gd2.mlb.com/components/game/mlb/year_2013/month_06/day_01/gid_2013_06_01_wasmlb_atlmlb_1/inning/inning_all.xml
-```
-
-```
-## NULL
-```
-
 ```r
 # dat2 <- scrape(start = '2013-06-01', end = '2013-06-01', suffix = files)
 
