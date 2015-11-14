@@ -1,6 +1,16 @@
  
 # Database with R
 
+* [Data loading and manipulation](#data-loading-and-manipulation)
+* [Output](#output)
+    * [Table 1\. Proportion of pitches that are "called strikes" among all pitches outside the strikezone\.](#table-1-proportion-of-pitches-that-are-called-strikes-among-all-pitches-outside-the-strikezone)
+    * [Table 2\. Proportion of pitches that are "called strikes" among all pitches outside the strikezone by count\.](#table-2-proportion-of-pitches-that-are-called-strikes-among-all-pitches-outside-the-strikezone-by-count)
+    * [Figure 1\. Proportion of pitches that are "called strikes" among all pitches outside the strikezone by count\.](#figure-1-proportion-of-pitches-that-are-called-strikes-among-all-pitches-outside-the-strikezone-by-count)
+
+### Data loading and manipulation
+
+* Load webscraped baseball PITCHf/x data to SQLite database. 
+* Extract count, called strike, pitch information, merge with umpire dataset.
 
 
 ```r
@@ -61,13 +71,15 @@ names(cs_out_zn_count) <- c("Count", "# Called Strikes", "# Pitches", "Called st
 ```
 
 
-* Table 1. Proportion of pitches that are "called strikes" among all pitches outside the strikezone.
+### Output
+
+#### Table 1. Proportion of pitches that are "called strikes" among all pitches outside the strikezone.
 
 | # Called Strikes| # Pitches| Called strikes %|
 |----------------:|---------:|----------------:|
 |              189|      1604|        0.1178304|
 
-* Table 2. Proportion of pitches that are "called strikes" among all pitches outside the strikezone by count.
+#### Table 2. Proportion of pitches that are "called strikes" among all pitches outside the strikezone by count.
 
 |Count | # Called Strikes| # Pitches| Called strikes %|
 |:-----|----------------:|---------:|----------------:|
@@ -84,6 +96,6 @@ names(cs_out_zn_count) <- c("Count", "# Called Strikes", "# Pitches", "Called st
 |3-1   |                2|        26|        0.0769231|
 |3-2   |                1|        30|        0.0333333|
 
-* Figure 1. Proportion of pitches that are "called strikes" among all pitches outside the strikezone by count.
+#### Figure 1. Proportion of pitches that are "called strikes" among all pitches outside the strikezone by count.
 
 ![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png) 

@@ -1,6 +1,16 @@
  
 # Database with R
 
+* [Data loading and manipulation](#data-loading-and-manipulation)
+* [Output](#output)
+    * [Table 1\. Proportion of pitches that are "called strikes" among all pitches outside the strikezone\.](#table-1-proportion-of-pitches-that-are-called-strikes-among-all-pitches-outside-the-strikezone)
+    * [Table 2\. Proportion of pitches that are "called strikes" among all pitches outside the strikezone by count\.](#table-2-proportion-of-pitches-that-are-called-strikes-among-all-pitches-outside-the-strikezone-by-count)
+    * [Figure 1\. Proportion of pitches that are "called strikes" among all pitches outside the strikezone by count\.](#figure-1-proportion-of-pitches-that-are-called-strikes-among-all-pitches-outside-the-strikezone-by-count)
+
+### Data loading and manipulation
+
+* Load webscraped baseball PITCHf/x data to SQLite database. 
+* Extract count, called strike, pitch information, merge with umpire dataset.
 
 ```{r}
 #setup
@@ -70,17 +80,19 @@ names(cs_out_zn_count) <- c("Count","# Called Strikes","# Pitches","Called strik
 ```
 
 
-* Table 1. Proportion of pitches that are "called strikes" among all pitches outside the strikezone.
+### Output
+
+#### Table 1. Proportion of pitches that are "called strikes" among all pitches outside the strikezone.
 ```{r, echo = F}
 kable(cs_out_zn_all)
 ```
 
-* Table 2. Proportion of pitches that are "called strikes" among all pitches outside the strikezone by count.
+#### Table 2. Proportion of pitches that are "called strikes" among all pitches outside the strikezone by count.
 ```{r, echo = F}
 kable(cs_out_zn_count)
 ```
 
-* Figure 1. Proportion of pitches that are "called strikes" among all pitches outside the strikezone by count.
+#### Figure 1. Proportion of pitches that are "called strikes" among all pitches outside the strikezone by count.
 
 ```{r, echo = F}
 figure1
