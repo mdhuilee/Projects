@@ -1,4 +1,12 @@
  
+# Database with R
+
+
+```{r}
+#setup
+opts_chunk$set(tidy = TRUE, cache=TRUE, autodep=TRUE, message=FALSE)
+```
+
 
 ```{r}
 library(pitchRx)
@@ -10,8 +18,8 @@ library(ggplot2)
 db <- src_sqlite("pitchfx.sqlite3", create = T)
 
 files <- c("inning/inning_all.xml", "players.xml")
-scrape(start = "2015-01-01", end = Sys.Date(), suffix = files, connect = db$con)
-dat2 <- scrape(start = "2013-06-01", end = "2013-06-01", suffix = files)
+scrape(start = "2013-06-01", end = "2013-06-01", suffix = files, connect = db$con)
+# dat2 <- scrape(start = "2013-06-01", end = "2013-06-01", suffix = files)
 
 #db <- src_sqlite("pitchfx.sqlite3")
 
@@ -62,19 +70,5 @@ cs_out_zn_count
 
 ggplot(data=cs_out_zn_count,aes(x=count,y=cs_out_zn)) + geom_point() + ylab("Probalilities by count") + theme_bw()
 
-# #merge with atbat
-# out_zn %>%
-#     inner_join(atbat, by = c("gameday_link", "num")) %>%
-#     distinct() %>% 
-#     compute(name = "pitch_atbat", temporary = FALSE)
-
-library(stats)
-glmod1 <- glm(cs_ind ~ 1, family= binomial, data=out_zn)
-summary(glmod1)
-glmod2 <- glm(cs_ind ~ count, family=binomial, data=out_zn)
-summary(glmod2)
-anova(glmod1,glmod2)
-(f <- 7299.5/11/(163989/258290))
-qf(0.95,11,258290)
-
+ 
 ```

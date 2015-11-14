@@ -22,9 +22,14 @@ Finally, we use our best model to predict the response with given predictor valu
 
 ## Results
 
-```{r,warning=FALSE,message=FALSE}
-library(knitr)
+```{r}
+#setup
 opts_chunk$set(tidy = TRUE, cache=TRUE, autodep=TRUE, message=FALSE)
+```
+
+
+```{r,warning=FALSE}
+library(knitr)
 
 load("/Users/lei/Desktop/one/Practice/GIT_first/Projects/Predict musical ability with LASSO/C1.RData")
 library(MASS)
