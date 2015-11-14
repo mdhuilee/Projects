@@ -26,7 +26,7 @@ Finally, we use our best model to predict the response with given predictor valu
 library(knitr)
 opts_chunk$set(tidy = TRUE, cache=TRUE, autodep=TRUE, message=FALSE)
 
-load("/Users/hui/ST810/C1.RData")
+load("/Users/lei/Desktop/one/Practice/GIT_first/Projects/Predict musical ability with LASSO/C1.RData")
 library(MASS)
 library(knitr)
 

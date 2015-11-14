@@ -27,180 +27,63 @@ Finally, we use our best model to predict the response with given predictor valu
 library(knitr)
 opts_chunk$set(tidy = TRUE, cache = TRUE, autodep = TRUE, message = FALSE)
 
-load("/Users/hui/ST810/C1.RData")
-```
-
-```
-## Error in readChar(con, 5L, useBytes = TRUE): cannot open the connection
-```
-
-```r
+load("/Users/lei/Desktop/one/Practice/GIT_first/Projects/Predict musical ability with LASSO/C1.RData")
 library(MASS)
 library(knitr)
 
 # Transform original X
 
 X_dup <- X
-```
 
-```
-## Error in eval(expr, envir, enclos): object 'X' not found
-```
-
-```r
 dim(X_dup) <- c(200, 8000)
-```
 
-```
-## Error in dim(X_dup) <- c(200, 8000): object 'X_dup' not found
-```
-
-```r
 # divide data into two parts:one for training and one for predicting
 
 X100 <- scale(X_dup[1:100, ])
-```
-
-```
-## Error in scale(X_dup[1:100, ]): object 'X_dup' not found
-```
-
-```r
 X100plus <- scale(X_dup[101:200, ])
-```
-
-```
-## Error in scale(X_dup[101:200, ]): object 'X_dup' not found
-```
-
-```r
 Y100 <- Y[1:100]
-```
-
-```
-## Error in eval(expr, envir, enclos): object 'Y' not found
-```
-
-```r
 Yc <- Y100 - mean(Y100)
-```
-
-```
-## Error in eval(expr, envir, enclos): object 'Y100' not found
-```
-
-```r
 n <- 100
 
 # Fit the LASSO with LARS
 
 library(lars)
 lasso <- lars(X100, Yc, use.Gram = FALSE)
-```
-
-```
-## Error in lars(X100, Yc, use.Gram = FALSE): object 'X100' not found
-```
-
-```r
 plot(lasso)
 ```
 
-```
-## Error in plot(lasso): object 'lasso' not found
-```
+![plot of chunk unnamed-chunk-1](figure/unnamed-chunk-1-1.png) 
 
 ```r
 # Selecting the best point on the path using BIC
 
 betas <- lasso$beta
-```
-
-```
-## Error in eval(expr, envir, enclos): object 'lasso' not found
-```
-
-```r
 df <- lasso$df
-```
-
-```
-## Error in eval(expr, envir, enclos): object 'lasso' not found
-```
-
-```r
 MSE <- lasso$RSS/n
-```
-
-```
-## Error in eval(expr, envir, enclos): object 'lasso' not found
-```
-
-```r
 bic <- log(n) * df + n * log(MSE)
-```
 
-```
-## Error in FUN(left, right): non-numeric argument to binary operator
-```
-
-```r
 bestb <- which.min(bic)
-```
 
-```
-## Error in which.min(bic): object 'bic' not found
-```
-
-```r
 matplot(df, bic, type = "l", lty = 1, xlab = "Degrees of Freedom", ylab = "bic")
 ```
 
-```
-## Error in as.matrix(y): object 'bic' not found
-```
+![plot of chunk unnamed-chunk-1](figure/unnamed-chunk-1-2.png) 
 
 ```r
 matplot(df, MSE, type = "l", lty = 1, xlab = "Degrees of Freedom", ylab = "MSE")
 ```
 
-```
-## Error in as.matrix(y): object 'MSE' not found
-```
+![plot of chunk unnamed-chunk-1](figure/unnamed-chunk-1-3.png) 
 
 ```r
 beta_lasso <- betas[bestb, ]
-```
 
-```
-## Error in eval(expr, envir, enclos): object 'betas' not found
-```
-
-```r
 # Determine the most important predictors and how accurate
 
 beta_num <- which(beta_lasso != 0)
-```
-
-```
-## Error in which(beta_lasso != 0): object 'beta_lasso' not found
-```
-
-```r
 betas <- cbind(beta_num, beta_lasso[beta_num])
-```
-
-```
-## Error in cbind(beta_num, beta_lasso[beta_num]): object 'beta_num' not found
-```
-
-```r
 topnv <- 20
 topvar <- keep <- which(rank(-abs(betas[, 2])) <= topnv)
-```
-
-```
-## Error in rank(-abs(betas[, 2])): object 'betas' not found
 ```
     
 
@@ -241,13 +124,7 @@ for (i in 1:nv) {
         vox[i, 1] <- keep[i] - 400 * (vox[i, 3] - 1) - 20 * (vox[i, 2] - 1)
     }
 }
-```
 
-```
-## Error: object 'keep' not found
-```
-
-```r
 colnames(vox) <- c("u", "v", "w")
 
 kable(as.data.frame(t(vox)), caption = "The Most Important Twenty Voxels")
@@ -255,11 +132,11 @@ kable(as.data.frame(t(vox)), caption = "The Most Important Twenty Voxels")
 
 
 
-|   |V1 |V2 |V3 |V4 |V5 |V6 |V7 |V8 |V9 |V10 |V11 |V12 |V13 |V14 |V15 |V16 |V17 |V18 |V19 |V20 |
-|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|
-|u  |NA |NA |NA |NA |NA |NA |NA |NA |NA |NA  |NA  |NA  |NA  |NA  |NA  |NA  |NA  |NA  |NA  |NA  |
-|v  |NA |NA |NA |NA |NA |NA |NA |NA |NA |NA  |NA  |NA  |NA  |NA  |NA  |NA  |NA  |NA  |NA  |NA  |
-|w  |NA |NA |NA |NA |NA |NA |NA |NA |NA |NA  |NA  |NA  |NA  |NA  |NA  |NA  |NA  |NA  |NA  |NA  |
+|   | V1| V2| V3| V4| V5| V6| V7| V8| V9| V10| V11| V12| V13| V14| V15| V16| V17| V18| V19| V20|
+|:--|--:|--:|--:|--:|--:|--:|--:|--:|--:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+|u  |  1|  2| 10| 14| 15| 18| 20| 11|  3|  10|  12|  20|   4|  12|  14|  17|  20|   3|  13|  16|
+|v  |  1|  1|  1|  1|  1|  1|  1|  2|  3|   3|   3|   3|   4|   4|   4|   4|   4|   5|   5|   5|
+|w  |  1|  1|  1|  1|  1|  1|  1|  1|  1|   1|   1|   1|   1|   1|   1|   1|   1|   1|   1|   1|
 
 The best model includes ninety-nine voxels. We list the most important twenty voxels here according to the magnitude of corresponding coefficents. The order listed here is not related to their significance. 
 
