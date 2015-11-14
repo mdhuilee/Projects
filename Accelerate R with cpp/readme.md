@@ -17,19 +17,19 @@ To create four functions: the log likelihood and gradient function in R and Rcpp
 
 ```r
 library(knitr)
-opts_chunk$set(tidy = TRUE, cache = TRUE, autodep = TRUE, message = FALSE)
+opts_chunk$set(tidy = TRUE, cache=TRUE, autodep=TRUE, message=FALSE)
 
-log_like_r <- function(beta, y, x) {
-    len <- length(x)  #to create a vector storing the length of vector x
+log_like_r <- function(beta, y, x){
+    len <- length(x)    #to create a vector storing the length of vector x
     one <- rep(1, len)  #to create a vector of elements one with the same 
-    # length as x
+                        #length as x
     m <- cbind(one, x)  #to create a matrix with ones as the first column and
-    # x as the second column
+                        #x as the second column
     log_like <- 0
     for (i in 1:len) {
-        n <- y[i] * (t(beta) %*% m[i, ]) - log(1 + exp(t(beta) %*% m[i, ]))
-        # to calculate the log likehood function for each i
-        log_like = log_like + n  #to add each obtained value n to log_like
+        n <- y[i] * (t(beta) %*% m[i,])- log(1 + exp(t(beta) %*% m[i,]))
+                                #to calculate the log likehood function for each i
+        log_like = log_like + n #to add each obtained value n to log_like
     }
     as.vector(log_like)
 }
