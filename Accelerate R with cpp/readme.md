@@ -1,3 +1,6 @@
+---
+output: pdf_document
+---
  
 # Log likelihood and gradient function in R and Rcpp
 * [Summary](#summary)
@@ -49,6 +52,8 @@ gradient_r <- function(beta, y, x) {
     gradient
 }
 ```
+
+
 
 ```r
 # to load packages used in Rcpp codes
@@ -120,7 +125,7 @@ log_like_c(x = x, y = y, beta = beta)
 ```
 
 ```
-## Error in .Primitive(".Call")(<pointer: 0x0>, beta, x, y): NULL value passed as symbol address
+## [1] -80.00249
 ```
 
 ```r
@@ -128,7 +133,7 @@ all.equal(log_like_r(x = x, y = y, beta = beta), log_like_c(x = x, y = y, beta =
 ```
 
 ```
-## Error in .Primitive(".Call")(<pointer: 0x0>, beta, x, y): NULL value passed as symbol address
+## [1] TRUE
 ```
 
 ```r
@@ -145,7 +150,9 @@ gradient_c(x = x, y = y, beta = beta)
 ```
 
 ```
-## Error in .Primitive(".Call")(<pointer: 0x0>, beta, x, y): NULL value passed as symbol address
+##            [,1]
+## [1,]  -4.997511
+## [2,] -14.997494
 ```
 
 ```r
@@ -154,7 +161,7 @@ all.equal(gradient_r(x = x, y = y, beta = beta), c(gradient_c(x = x, y = y,
 ```
 
 ```
-## Error in .Primitive(".Call")(<pointer: 0x0>, beta, x, y): NULL value passed as symbol address
+## [1] TRUE
 ```
 
 
