@@ -2,6 +2,8 @@
 library(knitr)
 
 
+# cd /Users/lei/Desktop/one/Practice/GIT_first/Projects
+
 # ./gh-md-toc ./Web\ technology\ with\ R/readme.rmd
 setwd("/Users/lei/Desktop/one/Practice/GIT_first/Projects/Web technology with R/")
 knit('/Users/lei/Desktop/one/Practice/GIT_first/Projects/Web technology with R/readme.rmd')

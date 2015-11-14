@@ -1,10 +1,10 @@
 
 # Predicting musical ability with LASSO
-    * [Summary](#summary)
-    * [Introduction](#introduction)
-    * [Methods](#methods)
-    * [Results](#results)
-    * [Predictions](#predictions)
+* [Summary](#summary)
+* [Introduction](#introduction)
+* [Methods](#methods)
+* [Results](#results)
+* [Predictions](#predictions)
 
 
 ## Summary    
