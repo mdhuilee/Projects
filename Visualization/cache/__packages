@@ -1,10 +1,4 @@
 base
-methods
-datasets
-utils
-grDevices
-graphics
-stats
 xml2
 httr
 rvest
@@ -29,3 +23,5 @@ DAAG
 tidyr
 GGally
 gplots
+DBI
+RSQLite

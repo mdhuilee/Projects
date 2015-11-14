@@ -1,16 +1,18 @@
 
-# Visualization using R: a case study
+# Visualization using R
 
-## Gender difference among blood measurements in Athletes' Blood Measurements study
+## Case study: Gender difference among blood measurements in Athletes' Blood Measurements study
 
 Using density plot by gender, we could easily find blood measurements that have gender viariation.
 For example, male athletes tend to have more red blood cell count then female counterparts.
 We could also verify that by looking at parralel coordinate plot. In addition, we could see male athletes tend to have much lower sum of skin folds(ssf) and percent body fat(pcBfat).
 
-```{r, message=FALSE}
+```{r}
 library(knitr)
 opts_chunk$set(tidy = TRUE, cache=TRUE, autodep=TRUE, message=FALSE)
+```
 
+```{r}
 library(DAAG)
 library(ggplot2)
 library(tidyr)
@@ -36,4 +38,4 @@ ggparcoord(ais, columns = 1:11, groupColumn = "sex") +
 
 ```
 
- 
+
