@@ -51,16 +51,14 @@ out_zn <- pitch_umpire %>% filter((px < -0.85 | px > 0.85 | pz < sz_bot | pz >
 cs_out_zn_all <- out_zn %>% summarize(sum = sum(cs_ind), n = n()) %>% collect() %>% 
     mutate(cs_out_zn = sum/n)
 
-cs_out_zn_all
+kable(cs_out_zn_all)
 ```
 
-```
-## Source: local data frame [1 x 3]
-## 
-##     sum     n cs_out_zn
-##   (int) (int)     (dbl)
-## 1   189  1604 0.1178304
-```
+
+
+| sum|    n| cs_out_zn|
+|---:|----:|---------:|
+| 189| 1604| 0.1178304|
 
 ```r
 # cs_out_zn <- sum(out_zn$cs_ind) / dim(out_zn)[1] cs_out_zn
@@ -68,27 +66,25 @@ cs_out_zn_all
 cs_out_zn_count <- out_zn %>% group_by(count) %>% summarize(sum = sum(cs_ind), 
     n = n()) %>% collect() %>% mutate(cs_out_zn = sum/n)
 
-cs_out_zn_count
+kable(cs_out_zn_count)
 ```
 
-```
-## Source: local data frame [12 x 4]
-## 
-##    count   sum     n   cs_out_zn
-##    (chr) (int) (int)       (dbl)
-## 1    0-0    85   495 0.171717172
-## 2    0-1    17   235 0.072340426
-## 3    0-2     1   112 0.008928571
-## 4    1-0    30   175 0.171428571
-## 5    1-1    16   176 0.090909091
-## 6    1-2     9   133 0.067669173
-## 7    2-0     8    46 0.173913043
-## 8    2-1    10    74 0.135135135
-## 9    2-2     8    89 0.089887640
-## 10   3-0     2    13 0.153846154
-## 11   3-1     2    26 0.076923077
-## 12   3-2     1    30 0.033333333
-```
+
+
+|count | sum|   n| cs_out_zn|
+|:-----|---:|---:|---------:|
+|0-0   |  85| 495| 0.1717172|
+|0-1   |  17| 235| 0.0723404|
+|0-2   |   1| 112| 0.0089286|
+|1-0   |  30| 175| 0.1714286|
+|1-1   |  16| 176| 0.0909091|
+|1-2   |   9| 133| 0.0676692|
+|2-0   |   8|  46| 0.1739130|
+|2-1   |  10|  74| 0.1351351|
+|2-2   |   8|  89| 0.0898876|
+|3-0   |   2|  13| 0.1538462|
+|3-1   |   2|  26| 0.0769231|
+|3-2   |   1|  30| 0.0333333|
 
 ```r
 ggplot(data = cs_out_zn_count, aes(x = count, y = cs_out_zn)) + geom_point() + 

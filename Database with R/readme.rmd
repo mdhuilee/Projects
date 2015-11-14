@@ -54,7 +54,7 @@ cs_out_zn_all <-
     collect() %>%
     mutate(cs_out_zn = sum / n)
 
-cs_out_zn_all
+kable(cs_out_zn_all)
 
 #cs_out_zn <- sum(out_zn$cs_ind) / dim(out_zn)[1]
 #cs_out_zn 
@@ -66,7 +66,7 @@ cs_out_zn_count <-
     collect() %>%
     mutate(cs_out_zn = sum / n)
 
-cs_out_zn_count
+kable(cs_out_zn_count)
 
 ggplot(data=cs_out_zn_count,aes(x=count,y=cs_out_zn)) + geom_point() + ylab("Probalilities by count") + theme_bw()
 

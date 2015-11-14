@@ -24,4 +24,8 @@ setwd("/Users/lei/Desktop/one/Practice/GIT_first/Projects/Package demo/")
 knit('/Users/lei/Desktop/one/Practice/GIT_first/Projects/Package demo/readme.rmd')
 
 
+setwd("/Users/lei/Desktop/one/Practice/GIT_first/Projects/Database with R/")
+knit('/Users/lei/Desktop/one/Practice/GIT_first/Projects/Database with R/readme.rmd')
+
+ 
 
