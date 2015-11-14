@@ -4,11 +4,12 @@
 
 ```{r}
 #setup
+library(knitr)
 opts_chunk$set(tidy = TRUE, cache=TRUE, autodep=TRUE, message=FALSE)
 ```
 
 
-```{r}
+```{r, results = 'hide'}
 library(pitchRx)
 library(dplyr)
 library(RSQLite)
@@ -54,10 +55,7 @@ cs_out_zn_all <-
     collect() %>%
     mutate(cs_out_zn = sum / n)
 
-kable(cs_out_zn_all)
-
-#cs_out_zn <- sum(out_zn$cs_ind) / dim(out_zn)[1]
-#cs_out_zn 
+names(cs_out_zn_all) <- c("# Called Strikes","# Pitches","Called strikes %")
 
 cs_out_zn_count <-
     out_zn %>%
@@ -66,9 +64,24 @@ cs_out_zn_count <-
     collect() %>%
     mutate(cs_out_zn = sum / n)
 
+figure1 <- ggplot(data=cs_out_zn_count,aes(x=count,y=cs_out_zn)) + geom_point(color = "blue", size = 4) + ylab("Probalilities by count") + theme_bw()
+
+names(cs_out_zn_count) <- c("Count","# Called Strikes","# Pitches","Called strikes %")
+```
+
+
+* Table 1. Proportion of pitches that are "called strikes" among all pitches outside the strikezone.
+```{r, echo = F}
+kable(cs_out_zn_all)
+```
+
+* Table 2. Proportion of pitches that are "called strikes" among all pitches outside the strikezone by count.
+```{r, echo = F}
 kable(cs_out_zn_count)
+```
 
-ggplot(data=cs_out_zn_count,aes(x=count,y=cs_out_zn)) + geom_point() + ylab("Probalilities by count") + theme_bw()
+* Figure 1. Proportion of pitches that are "called strikes" among all pitches outside the strikezone by count.
 
- 
+```{r, echo = F}
+figure1
 ```
