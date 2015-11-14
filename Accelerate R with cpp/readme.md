@@ -1,7 +1,4 @@
----
-output: pdf_document
----
- 
+
 # Log likelihood and gradient function in R and Rcpp
 * [Summary](#summary)
 * [Code](#code)
