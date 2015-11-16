@@ -3,9 +3,12 @@ library(ggplot2)
 library(ggmap)
 library(dplyr)
 library(shiny)
+library(formattable)
 
 house_date <- readRDS(
           file = "houseData.rds")
+
+house_date$price <- currency(house_date$price)
 
 #           file = "/Users/lei/Desktop/one/Practice/GIT_first/Projects/Web technology with R/Shiny web app/houseData.rds")
 
@@ -41,7 +44,8 @@ shinyServer( function(input, output) {
             scale_fill_manual(
                 values = c("1" = "#c7e9c0","2" = "#74c476","3" = "#31a354",
                            "4" = "#006d2c"),  
-                labels = c("<100,000", "100,000-200,000", "200,000-300,000", ">300,000")) +
+                name = "Price range",
+                labels = c("<$100,000", "$100,000-$200,000", "$200,000-$300,000", ">$300,000")) +
             
             theme(    axis.line = element_blank(),
                       axis.text.x = element_blank(),
