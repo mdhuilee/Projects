@@ -19,26 +19,7 @@ opts_chunk$set(tidy = TRUE, cache=TRUE, autodep=TRUE, message=FALSE)
 
 library(httr)
 library(rvest)
-```
-
-```
-## Loading required package: xml2
-```
-
-```r
 library(magrittr)
-```
-
-```
-## 
-## Attaching package: 'magrittr'
-## 
-## The following object is masked from 'package:ggmap':
-## 
-##     inset
-```
-
-```r
 library(ggmap)
 library(stringr)
 library(knitr)
@@ -60,12 +41,6 @@ valueChange30Day <- result %>% html_node("valueChange")%>%html_text()
 
 
 Table1. Real estate information using Zillow API
-
-
-```r
-kable(data.frame(zpid, amount, low, high, valueChange30Day))
-```
-
 
 
 |zpid     |amount  |low     |high    |valueChange30Day |
@@ -137,12 +112,6 @@ houseData <- data.frame(zpid, price, yrbuilt, numbeds, numbaths, housesqft,
 
 
 Table2. Real estate information in Greenwood, IN scraped from Zillow
-
-```r
-kable(houseData[1:6, ])
-```
-
-
 
 |zpid       |  price| yrbuilt| numbeds| numbaths| housesqft| lotsqft|straddr                                      |       lon|      lat|
 |:----------|------:|-------:|-------:|--------:|---------:|-------:|:--------------------------------------------|---------:|--------:|
