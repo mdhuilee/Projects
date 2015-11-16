@@ -18,7 +18,9 @@ Demonstrate using Zillow official API to extract information
 ```{r}
 library(knitr)
 opts_chunk$set(tidy = TRUE, cache=TRUE, autodep=TRUE, message=FALSE)
+```
 
+```{r}
 library(httr)
 library(rvest)
 library(magrittr)
