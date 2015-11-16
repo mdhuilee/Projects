@@ -1,5 +1,7 @@
 # Web technology with R
 
+
+* Interactive web application at <https://huili.shinyapps.io/database>
 * [1\. Using API](#1-using-api)
 * [2\. Explore Zillow data using rvest](#2-explore-zillow-data-using-rvest)
 * [3\. Mapping](#3-mapping)
@@ -59,7 +61,7 @@ Hui adapted from https://raw.githubusercontent.com/notesofdabbler/blog_notesofda
 url="http://www.zillow.com/homes/for_sale/Greenwood-IN/fsba,fsbo,fore,cmsn_lt/house_type/52333_rid/39.638414,-86.011362,39.550714,-86.179419_rect/12_zm/0_mmm/"
 
 # get list of houses for sales that appears on the page
-houselist <- url%>%html()%>%html_nodes("article")
+houselist <- url%>%read_html()%>%html_nodes("article")
 
 # Extract zillow id for each listing
 zpid <- houselist %>% html_attr("id") %>% str_replace_all("zpid_", "")
@@ -124,12 +126,16 @@ houseData$price_cat[houseData$price > 200000] <- 3
 houseData$price_cat[houseData$price > 300000] <- 4
 houseData$price_cat <- as.factor(houseData$price_cat)
 
+# for shiny app
+saveRDS(houseData,
+          file = "/Users/lei/Desktop/one/Practice/GIT_first/Projects/Web technology with R/Shiny web app/houseData.rds")
+
 theme_set(theme_bw(16))
 gw_in <- qmap("Greenwood IN", color = "bw", zoom = 12)
 
 gw_in +
     stat_bin2d(
-        aes(x = lon, y = lat, price_cat, fill = price_cat),
+        aes(x = lon, y = lat, fill = price_cat),
         size = .5, bins = 25, alpha = 1/2,
         data = houseData
     ) + 

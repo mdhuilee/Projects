@@ -14,9 +14,9 @@
 
 
 ```r
-# setup
+#setup
 library(knitr)
-opts_chunk$set(tidy = TRUE, cache = TRUE, autodep = TRUE, message = FALSE)
+opts_chunk$set(tidy = TRUE, cache=TRUE, autodep=TRUE, message=FALSE)
 ```
 
 
@@ -53,19 +53,18 @@ out_zn <- pitch_umpire %>% filter((px < -0.85 | px > 0.85 | pz < sz_bot | pz >
     "Called Strike")) %>% select(position, name, id.x, des, cs_ind, px, pz, 
     sz_top, sz_bot, num, count, gameday_link) %>% collect()
 
-# proportion of pitches that are 'called strikes' among all pitches outside
-# the strikezone.
+# proportion of called strikes' among all pitches outside the strikezone.
 
 cs_out_zn_all <- out_zn %>% summarize(sum = sum(cs_ind), n = n()) %>% collect() %>% 
-    mutate(cs_out_zn = sum/n)
+    mutate(cs_out_zn = round(100 * sum/n, 1))
 
 names(cs_out_zn_all) <- c("# Called Strikes", "# Pitches", "Called strikes %")
 
 cs_out_zn_count <- out_zn %>% group_by(count) %>% summarize(sum = sum(cs_ind), 
-    n = n()) %>% collect() %>% mutate(cs_out_zn = sum/n)
+    n = n()) %>% collect() %>% mutate(cs_out_zn = round(100 * sum/n, 1))
 
-figure1 <- ggplot(data = cs_out_zn_count, aes(x = count, y = cs_out_zn)) + geom_point(color = "blue", 
-    size = 4) + ylab("Probalilities by count") + theme_bw()
+figure1 <- ggplot(data = cs_out_zn_count, aes(x = count, y = cs_out_zn, fill = count)) + 
+    geom_bar(stat = "identity") + ylab("Probalilities by count") + theme(legend.position = "none")
 
 names(cs_out_zn_count) <- c("Count", "# Called Strikes", "# Pitches", "Called strikes %")
 ```
@@ -77,24 +76,24 @@ names(cs_out_zn_count) <- c("Count", "# Called Strikes", "# Pitches", "Called st
 
 | # Called Strikes| # Pitches| Called strikes %|
 |----------------:|---------:|----------------:|
-|              189|      1604|        0.1178304|
+|              189|      1604|             11.8|
 
 #### Table 2. Proportion of pitches that are "called strikes" among all pitches outside the strikezone by count.
 
 |Count | # Called Strikes| # Pitches| Called strikes %|
 |:-----|----------------:|---------:|----------------:|
-|0-0   |               85|       495|        0.1717172|
-|0-1   |               17|       235|        0.0723404|
-|0-2   |                1|       112|        0.0089286|
-|1-0   |               30|       175|        0.1714286|
-|1-1   |               16|       176|        0.0909091|
-|1-2   |                9|       133|        0.0676692|
-|2-0   |                8|        46|        0.1739130|
-|2-1   |               10|        74|        0.1351351|
-|2-2   |                8|        89|        0.0898876|
-|3-0   |                2|        13|        0.1538462|
-|3-1   |                2|        26|        0.0769231|
-|3-2   |                1|        30|        0.0333333|
+|0-0   |               85|       495|             17.2|
+|0-1   |               17|       235|              7.2|
+|0-2   |                1|       112|              0.9|
+|1-0   |               30|       175|             17.1|
+|1-1   |               16|       176|              9.1|
+|1-2   |                9|       133|              6.8|
+|2-0   |                8|        46|             17.4|
+|2-1   |               10|        74|             13.5|
+|2-2   |                8|        89|              9.0|
+|3-0   |                2|        13|             15.4|
+|3-1   |                2|        26|              7.7|
+|3-2   |                1|        30|              3.3|
 
 #### Figure 1. Proportion of pitches that are "called strikes" among all pitches outside the strikezone by count.
 

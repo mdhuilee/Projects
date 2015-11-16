@@ -29,3 +29,5 @@ pitchRx
 dplyr
 DBI
 RSQLite
+shiny
+readr

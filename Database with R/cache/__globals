@@ -1,5 +1,5 @@
 unnamed-chunk-1	$	library	opts_chunk
-unnamed-chunk-2	%>%	<	==	>	|	$	aes	as.numeric	c	collect	count	cs_ind	cs_out_zn	des	distinct	filter	gameday_link	geom_point	ggplot	group_by	id.x	inner_join	inning	library	mutate	n	name	names<-	num	p_throws	pitcher_name	position	px	pz	scrape	select	src_sqlite	stand	sum	summarize	sz_bot	sz_top	T	tbl	theme_bw	ylab
+unnamed-chunk-2	%>%	<	==	>	|	$	aes	as.numeric	c	collect	count	cs_ind	cs_out_zn	des	distinct	filter	gameday_link	geom_bar	ggplot	group_by	id.x	inner_join	inning	library	mutate	n	name	names<-	num	p_throws	pitcher_name	position	px	pz	round	scrape	select	src_sqlite	stand	sum	summarize	sz_bot	sz_top	T	tbl	theme	ylab
 unnamed-chunk-3	cs_out_zn_all	kable
 unnamed-chunk-4	cs_out_zn_count	kable
 unnamed-chunk-5	figure1

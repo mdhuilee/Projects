@@ -23,3 +23,13 @@ DAAG
 tidyr
 GGally
 gplots
+shiny
+dplyr
+readr
+pitchRx
+DBI
+RSQLite
+devtools
+NFLvegas
+shinyapps
+xtable
