@@ -1,7 +1,7 @@
 # Web technology with R
 
 
-* Interactive web application at <https://huili.shinyapps.io/database>
+* Interactive web application at <https://huili.shinyapps.io/Web_tech>
 * [1\. Using API](#1-using-api)
 * [2\. Explore Zillow data using rvest](#2-explore-zillow-data-using-rvest)
 * [3\. Mapping](#3-mapping)
