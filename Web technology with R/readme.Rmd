@@ -95,7 +95,7 @@ lotsqft <- sapply(lotsqft, function(x) {
 yrbuilt <- houselist%>%html_node(".built-year")%>%html_text()
 yrbuilt <- as.numeric(str_extract_all(yrbuilt, "\\d+"))
 
-price <- houselist%>%html_node(".price-large")%>%html_text()%>%gsub("[\\$a-zA-Z,]","",.)%>%as.numeric()
+price <- houselist%>%html_node(".price-large")%>%html_text()%>%gsub("[\\$a-zA-Z,]","",.)%>%as.numeric()%>%currency()
 
 # house parameters (number of beds, baths, house area)
 houseparams <- houselist%>%html_node(".property-data")%>%html_text()
@@ -154,7 +154,8 @@ gw_in +
     scale_fill_manual(
         values = c("1" = "#c7e9c0","2" = "#74c476","3" = "#31a354",
                    "4" = "#006d2c"),  
-        labels = c("<100,000", "100,000-200,000", "200,000-300,000", ">300,000")) +
+        name = "Price range",
+        labels = c("<$100,000", "$100,000-$200,000", "$200,000-$300,000", ">$300,000")) +
     
     theme(    axis.line = element_blank(),
               axis.text.x = element_blank(),

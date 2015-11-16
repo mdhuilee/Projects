@@ -98,7 +98,7 @@ yrbuilt <- houselist %>% html_node(".built-year") %>% html_text()
 yrbuilt <- as.numeric(str_extract_all(yrbuilt, "\\d+"))
 
 price <- houselist %>% html_node(".price-large") %>% html_text() %>% gsub("[\\$a-zA-Z,]", 
-    "", .) %>% as.numeric()
+    "", .) %>% as.numeric() %>% currency()
 
 # house parameters (number of beds, baths, house area)
 houseparams <- houselist %>% html_node(".property-data") %>% html_text()
@@ -120,14 +120,14 @@ houseData <- data.frame(zpid, price, yrbuilt, numbeds, numbaths, housesqft,
 
 ### Table2. Real estate information in Greenwood, IN scraped from Zillow
 
-|zpid       |  price| yrbuilt| numbeds| numbaths| housesqft| lotsqft|straddr                                      |       lon|      lat|
-|:----------|------:|-------:|-------:|--------:|---------:|-------:|:--------------------------------------------|---------:|--------:|
-|85441750   |  83000|    1958|       3|        1|      1181| 12196.8|12 Patterson St Greenwood IN 46143           | -86.09198| 39.61548|
-|85453095   | 175500|    1996|       4|        3|      2200| 13068.0|801 Lionshead Ln Greenwood IN 46143          | -86.17355| 39.60472|
-|2103744591 | 269900|    2015|       3|        2|      1810| 15681.6|537 Weyworth Pl Greenwood IN 46142           | -86.13726| 39.60961|
-|85465778   | 109900|    2001|       3|        3|      1325|  4356.0|2391 Providence Ct Greenwood IN 46143        | -86.10520| 39.58174|
-|2100551520 | 235000|    2015|       4|        3|      2817| 10454.0|1641 Windborne Ln Greenwood IN 46143         | -86.14667| 39.59392|
-|85444228   | 135000|    2002|       2|        2|      1173|  4791.0|1112 Lincoln Park East Dr Greenwood IN 46142 | -86.16448| 39.63262|
+|zpid       |       price| yrbuilt| numbeds| numbaths| housesqft| lotsqft|straddr                                      |       lon|      lat|
+|:----------|-----------:|-------:|-------:|--------:|---------:|-------:|:--------------------------------------------|---------:|--------:|
+|85441750   |  $83,000.00|    1958|       3|        1|      1181| 12196.8|12 Patterson St Greenwood IN 46143           | -86.09198| 39.61548|
+|85453095   | $175,500.00|    1996|       4|        3|      2200| 13068.0|801 Lionshead Ln Greenwood IN 46143          | -86.17355| 39.60472|
+|2103744591 | $269,900.00|    2015|       3|        2|      1810| 15681.6|537 Weyworth Pl Greenwood IN 46142           | -86.13726| 39.60961|
+|85465778   | $109,900.00|    2001|       3|        3|      1325|  4356.0|2391 Providence Ct Greenwood IN 46143        | -86.10520| 39.58174|
+|2100551520 | $235,000.00|    2015|       4|        3|      2817| 10454.0|1641 Windborne Ln Greenwood IN 46143         | -86.14667| 39.59392|
+|85444228   | $135,000.00|    2002|       2|        2|      1173|  4791.0|1112 Lincoln Park East Dr Greenwood IN 46142 | -86.16448| 39.63262|
 
 
 ## 3. Mapping
@@ -153,8 +153,9 @@ gw_in <- qmap("Greenwood IN", color = "bw", zoom = 12)
 
 gw_in + stat_bin2d(aes(x = lon, y = lat, fill = price_cat), size = 0.5, bins = 25, 
     alpha = 1/2, data = houseData) + scale_fill_manual(values = c(`1` = "#c7e9c0", 
-    `2` = "#74c476", `3` = "#31a354", `4` = "#006d2c"), labels = c("<100,000", 
-    "100,000-200,000", "200,000-300,000", ">300,000")) + 
+    `2` = "#74c476", `3` = "#31a354", `4` = "#006d2c"), name = "Price range", 
+    labels = c("<$100,000", "$100,000-$200,000", "$200,000-$300,000", ">$300,000")) + 
+    
 theme(axis.line = element_blank(), axis.text.x = element_blank(), axis.text.y = element_blank(), 
     axis.ticks = element_blank(), axis.title.x = element_blank(), axis.title.y = element_blank(), 
     legend.text = element_text(size = 16))
