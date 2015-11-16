@@ -5,7 +5,7 @@
 
 Using density plot by gender, we could easily find blood measurements that have gender viariation.
 For example, male athletes tend to have more red blood cell count then female counterparts.
-We could also verify that by looking at parralel coordinate plot. In addition, we could see male athletes tend to have much lower sum of skin folds(ssf) and percent body fat(pcBfat).
+We could also verify that by looking at parallel coordinate plot. In addition, we could see male athletes tend to have much lower sum of skin folds(ssf) and percent body fat(pcBfat).
 
 
 ```r
