@@ -19,7 +19,26 @@ opts_chunk$set(tidy = TRUE, cache=TRUE, autodep=TRUE, message=FALSE)
 
 library(httr)
 library(rvest)
+```
+
+```
+## Loading required package: xml2
+```
+
+```r
 library(magrittr)
+```
+
+```
+## 
+## Attaching package: 'magrittr'
+## 
+## The following object is masked from 'package:ggmap':
+## 
+##     inset
+```
+
+```r
 library(ggmap)
 library(stringr)
 library(knitr)
@@ -37,7 +56,14 @@ amount <- result %>% html_node("amount")%>%html_text()
 low <- result %>% html_node("low")%>%html_text()
 high <- result %>% html_node("high")%>%html_text()
 valueChange30Day <- result %>% html_node("valueChange")%>%html_text()
-kable(data.frame(zpid,amount,low,high,valueChange30Day))
+```
+
+
+Table1. Real estate information using Zillow API
+
+
+```r
+kable(data.frame(zpid, amount, low, high, valueChange30Day))
 ```
 
 
@@ -48,7 +74,7 @@ kable(data.frame(zpid,amount,low,high,valueChange30Day))
 
 
 
-## 2. Explore Zillow data using rvest
+## 2. Explore Zillow data by scraping
 
 Alternatively, scrape Zillow website to get richer information and geocoding the address
 
@@ -107,7 +133,12 @@ housesqft <- sapply(houseparamsSplit, function(x) strsplit(x[1], " ")[[1]][7]) %
 # data.frame(zpid,price,yrbuilt,numbeds,numbaths,housesqft,lotsqft,straddr)
 houseData <- data.frame(zpid, price, yrbuilt, numbeds, numbaths, housesqft, 
     lotsqft, straddr, lat_lon)
+```
 
+
+Table2. Real estate information in Greenwood, IN scraped from Zillow
+
+```r
 kable(houseData[1:6, ])
 ```
 
@@ -115,14 +146,12 @@ kable(houseData[1:6, ])
 
 |zpid       |  price| yrbuilt| numbeds| numbaths| housesqft| lotsqft|straddr                                      |       lon|      lat|
 |:----------|------:|-------:|-------:|--------:|---------:|-------:|:--------------------------------------------|---------:|--------:|
-|85453095   | 175500|    1996|       4|      3.0|      2200| 13068.0|801 Lionshead Ln Greenwood IN 46143          | -86.17355| 39.60472|
-|2103744591 | 269900|    2015|       3|      2.0|      1810| 15681.6|537 Weyworth Pl Greenwood IN 46142           | -86.13726| 39.60961|
-|85465778   | 109900|    2001|       3|      3.0|      1325|  4356.0|2391 Providence Ct Greenwood IN 46143        | -86.10520| 39.58174|
-|2100551520 | 235000|    2015|       4|      3.0|      2817| 10454.0|1641 Windborne Ln Greenwood IN 46143         | -86.14667| 39.59392|
-|85444228   | 135000|    2002|       2|      2.0|      1173|  4791.0|1112 Lincoln Park East Dr Greenwood IN 46142 | -86.16448| 39.63262|
-|2100587200 | 375000|    2013|       4|      2.5|      4074| 15246.0|Brentford Ln Greenwood IN 46143              | -86.14453| 39.58283|
-
-
+|85441750   |  83000|    1958|       3|        1|      1181| 12196.8|12 Patterson St Greenwood IN 46143           | -86.09198| 39.61548|
+|85453095   | 175500|    1996|       4|        3|      2200| 13068.0|801 Lionshead Ln Greenwood IN 46143          | -86.17355| 39.60472|
+|2103744591 | 269900|    2015|       3|        2|      1810| 15681.6|537 Weyworth Pl Greenwood IN 46142           | -86.13726| 39.60961|
+|85465778   | 109900|    2001|       3|        3|      1325|  4356.0|2391 Providence Ct Greenwood IN 46143        | -86.10520| 39.58174|
+|2100551520 | 235000|    2015|       4|        3|      2817| 10454.0|1641 Windborne Ln Greenwood IN 46143         | -86.14667| 39.59392|
+|85444228   | 135000|    2002|       2|        2|      1173|  4791.0|1112 Lincoln Park East Dr Greenwood IN 46142 | -86.16448| 39.63262|
 
 
 ## 3. Mapping
@@ -155,6 +184,6 @@ theme(axis.line = element_blank(), axis.text.x = element_blank(), axis.text.y = 
     legend.text = element_text(size = 16))
 ```
 
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png) 
+![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png) 
 
 
