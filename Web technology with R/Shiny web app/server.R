@@ -11,6 +11,18 @@ house_date <- readRDS(
 
 shinyServer( function(input, output) {
     
+    
+    
+    output$table_house <- renderDataTable({
+        if (input$numbeds != 5){
+            plot_data <- filter(house_date, numbeds == as.numeric(input$numbeds))}
+        else{
+            plot_data <- house_date
+        }
+        plot_data
+    })
+    
+    
     output$plot <- renderPlot({
         if (input$numbeds != 5){
         plot_data <- filter(house_date, numbeds == as.numeric(input$numbeds))}

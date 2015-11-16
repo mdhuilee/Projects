@@ -36,17 +36,19 @@ amount <- result %>% html_node("amount")%>%html_text()
 low <- result %>% html_node("low")%>%html_text()
 high <- result %>% html_node("high")%>%html_text()
 valueChange30Day <- result %>% html_node("valueChange")%>%html_text()
-kable(data.frame(zpid,amount,low,high,valueChange30Day))
-
-
-
-
 
 ```
 
 
+Table1. Real estate information using Zillow API
 
-## 2. Explore Zillow data using rvest
+```{r}
+kable(data.frame(zpid,amount,low,high,valueChange30Day))
+```
+
+
+
+## 2. Explore Zillow data by scraping
 
 Alternatively, scrape Zillow website to get richer information and geocoding the address
 
@@ -103,13 +105,17 @@ housesqft <- sapply(houseparamsSplit,function(x) strsplit(x[1]," ")[[1]][7]) %>%
 #houseData <- data.frame(zpid,price,yrbuilt,numbeds,numbaths,housesqft,lotsqft,straddr)
 houseData <- data.frame(zpid,price,yrbuilt,numbeds,numbaths,housesqft,lotsqft,straddr,lat_lon)
 
-kable(houseData[1:6,])
+
 
 
 
 ```
 
 
+Table2. Real estate information in Greenwood, IN scraped from Zillow
+```{r}
+kable(houseData[1:6,])
+```
 
 
 ## 3. Mapping
