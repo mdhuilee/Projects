@@ -19,7 +19,10 @@ Demonstrate using Zillow official API to extract information
 ```r
 library(knitr)
 opts_chunk$set(tidy = TRUE, cache=TRUE, autodep=TRUE, message=FALSE)
+```
 
+
+```r
 library(httr)
 library(rvest)
 library(magrittr)
@@ -28,28 +31,28 @@ library(stringr)
 library(knitr)
 library(xml2)
 library(formattable)
- 
-sample <- GET("http://www.zillow.com/webservice/GetSearchResults.htm", 
-              query = list('zws-id' = "X1-ZWz1f063o0dzij_7yjzz", 
-                           address = "2114 Bigelow Ave",
-                           citystatezip = "Seattle, WA"))
+
+sample <- GET("http://www.zillow.com/webservice/GetSearchResults.htm", query = list(`zws-id` = "X1-ZWz1f063o0dzij_7yjzz", 
+    address = "2114 Bigelow Ave", citystatezip = "Seattle, WA"))
 
 result <- read_xml(content(sample, "text"))
 
-zpid <- result %>% html_node("zpid")%>%html_text()
-amount <- result %>% html_node("amount")%>%html_text() %>% as.numeric() %>% currency()
-low <- result %>% html_node("low")%>%html_text() %>% as.numeric() %>% currency()
-high <- result %>% html_node("high")%>%html_text() %>% as.numeric() %>% currency()
-valueChange30Day <- result %>% html_node("valueChange")%>%html_text() %>% as.numeric() %>% currency()
+zpid <- result %>% html_node("zpid") %>% html_text()
+amount <- result %>% html_node("amount") %>% html_text() %>% as.numeric() %>% 
+    currency()
+low <- result %>% html_node("low") %>% html_text() %>% as.numeric() %>% currency()
+high <- result %>% html_node("high") %>% html_text() %>% as.numeric() %>% currency()
+valueChange30Day <- result %>% html_node("valueChange") %>% html_text() %>% 
+    as.numeric() %>% currency()
 ```
 
 
 ### Table1. Real estate information using Zillow API
 
 
-|zpid     |amount  |low     |high    |valueChange30Day |
-|:--------|:-------|:-------|:-------|:----------------|
-|48749425 |1422973 |1351824 |1494122 |-1999            |
+|zpid     |        amount|           low|          high| valueChange30Day|
+|:--------|-------------:|-------------:|-------------:|----------------:|
+|48749425 | $1,422,973.00| $1,351,824.00| $1,494,122.00|       $-1,999.00|
 
 
 
@@ -157,6 +160,6 @@ theme(axis.line = element_blank(), axis.text.x = element_blank(), axis.text.y = 
     legend.text = element_text(size = 16))
 ```
 
-![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png) 
+![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6-1.png) 
 
 
