@@ -3,7 +3,9 @@
 
 * Interactive web application at <https://huili.shinyapps.io/Web_tech>
 * [1\. Using API](#1-using-api)
-* [2\. Explore Zillow data using rvest](#2-explore-zillow-data-using-rvest)
+    * [Table1\. Real estate information using Zillow API](#table1-real-estate-information-using-zillow-api)
+* [2\. Explore Zillow data by scraping](#2-explore-zillow-data-by-scraping)
+    * [Table2\. Real estate information in Greenwood, IN scraped from Zillow](#table2-real-estate-information-in-greenwood-in-scraped-from-zillow)
 * [3\. Mapping](#3-mapping)
 
 
@@ -40,7 +42,7 @@ valueChange30Day <- result %>% html_node("valueChange")%>%html_text()
 ```
 
 
-Table1. Real estate information using Zillow API
+### Table1. Real estate information using Zillow API
 
 ```{r, echo=FALSE}
 kable(data.frame(zpid,amount,low,high,valueChange30Day))
@@ -112,7 +114,7 @@ houseData <- data.frame(zpid,price,yrbuilt,numbeds,numbaths,housesqft,lotsqft,st
 ```
 
 
-Table2. Real estate information in Greenwood, IN scraped from Zillow
+### Table2. Real estate information in Greenwood, IN scraped from Zillow
 ```{r, echo=FALSE}
 kable(houseData[1:6,])
 ```
