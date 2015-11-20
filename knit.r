@@ -20,7 +20,9 @@ knit('/Users/lei/Desktop/one/Practice/GIT_first/Projects/Accelerate R with cpp/r
 setwd("/Users/lei/Desktop/one/Practice/GIT_first/Projects/Database with R/")
 knit('/Users/lei/Desktop/one/Practice/GIT_first/Projects/Database with R/readme.rmd')
 
-
+# ./gh-md-toc ./Investigate\ pooled\ and\ unpooled\ Z\ statistics/readme.Rmd
+setwd("/Users/lei/Desktop/one/Practice/GIT_first/Projects/Investigate pooled and unpooled Z statistics/")
+knit('/Users/lei/Desktop/one/Practice/GIT_first/Projects/Investigate pooled and unpooled Z statistics/readme.Rmd')
 
 setwd("/Users/lei/Desktop/one/Practice/GIT_first/Projects/Visualization/")
 knit('/Users/lei/Desktop/one/Practice/GIT_first/Projects/Visualization/readme.rmd')
