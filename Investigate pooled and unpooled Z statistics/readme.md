@@ -170,7 +170,7 @@ plotalpha <- function(n = 10) {
     
     # plot the needed plot
     ggplot(alphasnew, aes(x = p, y = alphas, color = indicator)) + # geom_point() +
-    geom_line() + labs(title = paste0("Observed alpha levels for two Z statistics against different true values \n of p given n=", 
+    geom_line() + labs(title = paste0("Observed alpha levels for two Z statistics \n against different true values of p given n=", 
         n), x = "True values of p", y = "Observed significance levels") + scale_color_discrete(name = "Test Statistic Z", 
         labels = c("pooled", "unpooled")) + theme_bw()
 }
