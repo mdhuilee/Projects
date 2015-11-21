@@ -4,13 +4,13 @@
 Table of Contents
 =================
 
-* [Purpose:](#purpose)
+* [Purpose](#purpose)
 * [To investigate observed alpha levels for pooled and unpooled Z statistics](#to-investigate-observed-alpha-levels-for-pooled-and-unpooled-z-statistics)
 * [To investigate the power for pooled and unpooled Z statistics](#to-investigate-the-power-for-pooled-and-unpooled-z-statistics)
 * [Summary](#summary)
 
 
-### Purpose:    
+### Purpose   
 To investigate the attained alpha level and the power for pooled and unpooled Z statistics. Use alpha=0.05 for this project.
 
 ### To investigate observed alpha levels for pooled and unpooled Z statistics
